@@ -23,7 +23,7 @@ logging.basicConfig(
 
 # --- CONFIGURATION ---
 ECAP_URL = "https://webprosindia.com/vignanit"
-TOKEN = "8201745191:AAF_dM9cHjw7xUQcTW3xGezdCivNneAFnh4"
+TOKEN =os.getenv("TOKEN")
 
 # Cache the driver path so we don't install on every request
 try:
@@ -295,4 +295,5 @@ if __name__ == '__main__':
     app.add_handler(CommandHandler("login", login))
     app.add_handler(CallbackQueryHandler(refresh_data))
     
+
     app.run_polling()
